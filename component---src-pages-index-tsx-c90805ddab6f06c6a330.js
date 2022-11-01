@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmaniz_stha=self.webpackChunkmaniz_stha||[]).push([[691],{7200:function(e,n,t){t.r(n),t.d(n,{Head:function(){return l}});var a=t(7294);n.default=function(){return a.createElement("main",null,a.createElement("h1",null,"Welcome"),a.createElement("p",null,"To the personal site of Manish Shrestha"))};var l=function(){return a.createElement("title",null,"Manish Shrestha: Personal page")}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-c90805ddab6f06c6a330.js.map
