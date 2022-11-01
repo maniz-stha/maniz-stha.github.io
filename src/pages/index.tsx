@@ -8,6 +8,7 @@ const IndexPage = () => {
         Welcome
       </h1>
       <p>To the personal site of Manish Shrestha</p>
+      <<p>More info</p>>
     </main>
   )
 }
