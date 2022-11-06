@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: white;
+}
+
+html, body, #___gatsby {
+    min-height: 100%;
+}
+
+body {
+    background: radial-gradient(at bottom right, #f35 0%, #43e 100%);
+    background-repeat: no-repeat;
+}
