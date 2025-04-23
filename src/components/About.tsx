@@ -18,6 +18,27 @@ const About = () => {
     { name: 'DevOps/CI/CD', level: 80 },
   ];
 
+  const achievements = [
+    "Arctic Code Vault Contributor",
+    "Pair Extraordinaire (x3)",
+    "Pull Shark (x3)",
+    "YOLO",
+    "Quickdraw"
+  ];
+
+  const notableProjects = [
+    {
+      name: "recognize_image",
+      description: "Face recognition tool for identifying and copying images of specific individuals from large image sets",
+      tech: "Python"
+    },
+    {
+      name: "react-rails-news",
+      description: "HackerNews-like web application built with Ruby on Rails and React.js",
+      tech: "JavaScript, Ruby"
+    }
+  ];
+
   return (
     <section id="about" className="w-full section bg-surface-light dark:bg-surface-dark transition-colors duration-200">
       <div className="w-full container mx-auto">
@@ -47,12 +68,35 @@ const About = () => {
                 cloud platforms like AWS and Firebase enables me to design and deploy highly available and 
                 scalable applications.
               </p>
-              <p className="text-text-light/70 dark:text-text-dark/70">
+              <p className="text-text-light/70 dark:text-text-dark/70 mb-8">
                 My approach to software development is rooted in engineering best practices, including 
                 test-driven development, continuous integration/deployment, and agile methodologies. 
                 I am passionate about knowledge sharing and have successfully mentored junior developers, 
                 fostering a culture of technical excellence and innovation.
               </p>
+
+              <h3 className="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">GitHub Achievements</h3>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {achievements.map((achievement, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-primary-light/10 dark:bg-primary/10 text-primary-light dark:text-primary rounded-full text-sm"
+                  >
+                    {achievement}
+                  </span>
+                ))}
+              </div>
+
+              <h3 className="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Notable Projects</h3>
+              <div className="space-y-4">
+                {notableProjects.map((project, index) => (
+                  <div key={index} className="bg-background-light dark:bg-background-dark p-4 rounded-lg">
+                    <h4 className="text-lg font-semibold text-primary-light dark:text-primary">{project.name}</h4>
+                    <p className="text-text-light/70 dark:text-text-dark/70 mb-2">{project.description}</p>
+                    <p className="text-sm text-text-light/60 dark:text-text-dark/60">{project.tech}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div>

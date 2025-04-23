@@ -36,8 +36,8 @@ const Contact = () => {
                   <svg className="w-6 h-6 text-primary-light dark:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <a href="mailto:maniz.stha@gmail.com" className="text-text-light/70 dark:text-text-dark/70 hover:text-primary-light dark:hover:text-primary transition-colors">
-                    maniz.stha@gmail.com
+                  <a href="mailto:me@shresthamanis.com.np" className="text-text-light/70 dark:text-text-dark/70 hover:text-primary-light dark:hover:text-primary transition-colors">
+                    me@shresthamanis.com.np
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">

@@ -20,16 +20,32 @@ const Hero = () => {
           </motion.div>
 
           <motion.p
-            className="text-lg md:text-xl text-text-light/70 dark:text-text-dark/70 max-w-3xl mx-auto mb-12"
+            className="text-lg md:text-xl text-text-light/70 dark:text-text-dark/70 max-w-3xl mx-auto mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            A seasoned Software Engineer with over a decade of expertise in full-stack development, 
-            specializing in building scalable web applications and enterprise solutions. 
-            Proficient in modern technologies including Ruby, JavaScript, and cloud platforms, 
-            with a proven track record of delivering high-performance applications and mentoring development teams.
+            A seasoned Software Engineer with over a decade of expertise in full-stack development. 
+            Arctic Code Vault Contributor and active open-source enthusiast with achievements in pair programming 
+            and collaborative development. Specializing in building scalable web applications and enterprise solutions 
+            with a focus on modern technologies and cloud platforms.
           </motion.p>
+
+          <motion.div
+            className="flex justify-center space-x-4 mb-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <div className="px-4 py-2 bg-surface-light dark:bg-surface-dark rounded-lg">
+              <span className="text-primary-light dark:text-primary font-semibold">4</span>
+              <span className="text-text-light/70 dark:text-text-dark/70 ml-2">Followers</span>
+            </div>
+            <div className="px-4 py-2 bg-surface-light dark:bg-surface-dark rounded-lg">
+              <span className="text-primary-light dark:text-primary font-semibold">3</span>
+              <span className="text-text-light/70 dark:text-text-dark/70 ml-2">Following</span>
+            </div>
+          </motion.div>
 
           <motion.div
             className="flex flex-col md:flex-row gap-4 justify-center mb-16"
