@@ -6,12 +6,12 @@ echo "Starting deployment..."
 echo "Building application..."
 npm run build
 
-# Copy files to server (adjust the server details)
+# Copy files to server
 echo "Copying files to server..."
-rsync -avz --delete dist/ user@your-server:/var/www/portfolio/dist/
+rsync -avz --delete dist/ manis@114.29.237.70:/home/manis/maniz-stha/dist/
 
-# Restart Nginx on the server (requires SSH key setup)
-echo "Restarting Nginx..."
-ssh user@your-server 'sudo systemctl restart nginx'
+# Set proper permissions and restart Nginx
+echo "Setting permissions and restarting Nginx..."
+ssh manis@114.29.237.70 'sudo systemctl restart nginx'
 
 echo "Deployment completed!" 
