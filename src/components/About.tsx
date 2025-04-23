@@ -8,12 +8,14 @@ const About = () => {
   });
 
   const skills = [
-    { name: 'React', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'Node.js', level: 80 },
-    { name: 'Python', level: 75 },
-    { name: 'AWS', level: 70 },
-    { name: 'Docker', level: 65 },
+    { name: 'Ruby', level: 95 },
+    { name: 'JavaScript', level: 95 },
+    { name: 'PHP', level: 90 },
+    { name: 'Python', level: 85 },
+    { name: 'Golang', level: 80 },
+    { name: 'React/Next.js', level: 90 },
+    { name: 'Ruby on Rails', level: 95 },
+    { name: 'AWS', level: 85 },
   ];
 
   return (
@@ -34,20 +36,19 @@ const About = () => {
             <div>
               <h3 className="text-xl font-semibold mb-4">Who I Am</h3>
               <p className="text-gray-600 mb-6">
-                I'm a passionate software developer with a strong foundation in web development
-                and a keen eye for creating efficient, scalable solutions. My journey in
-                technology has been driven by a constant desire to learn and adapt to new
-                challenges.
+                I'm a Senior Software Engineer with more than 10 years of experience in backend and frontend development. 
+                My expertise spans across multiple programming languages and frameworks, with a strong focus on building 
+                scalable web applications and e-commerce solutions.
               </p>
               <p className="text-gray-600 mb-6">
-                With experience in both frontend and backend development, I specialize in
-                building modern web applications that deliver exceptional user experiences
-                while maintaining high performance and reliability.
+                I specialize in Ruby, JavaScript, and PHP development, with extensive experience in frameworks like 
+                Ruby on Rails, Next.js, React, and various PHP frameworks. I'm also proficient in working with cloud 
+                services such as AWS, Firebase, and Heroku.
               </p>
               <p className="text-gray-600">
-                When I'm not coding, I enjoy contributing to open-source projects,
-                writing technical articles, and staying up-to-date with the latest
-                developments in the tech industry.
+                My approach to development emphasizes test-driven development, agile methodologies, and maintaining 
+                high-quality code standards. I'm passionate about creating efficient, scalable solutions and mentoring 
+                junior developers to improve team performance.
               </p>
             </div>
 
@@ -70,6 +71,19 @@ const About = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold mb-4">Additional Skills</h3>
+                <ul className="list-disc list-inside space-y-2 text-gray-600">
+                  <li>Test Driven Development (TDD)</li>
+                  <li>Docker & Container Technologies</li>
+                  <li>Git Version Control</li>
+                  <li>Agile Development & Scrum</li>
+                  <li>RESTful APIs & Microservices</li>
+                  <li>TypeScript & React Native</li>
+                  <li>Database Design (PostgreSQL, MySQL)</li>
+                </ul>
               </div>
             </div>
           </div>

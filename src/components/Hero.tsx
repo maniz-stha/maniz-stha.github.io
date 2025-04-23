@@ -15,7 +15,7 @@ const Hero = () => {
               Hi, I'm <span className="text-primary">Manish Stha</span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-600 mb-8">
-              Software Developer & Problem Solver
+              Senior Software Engineer
             </h2>
           </motion.div>
 
@@ -25,9 +25,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            I build scalable web applications and create elegant solutions to complex problems.
-            With expertise in modern web technologies, I focus on delivering high-performance,
-            user-friendly experiences.
+            Senior Software Engineer with more than 10 years of experience specializing in backend and frontend development. 
+            Experienced in all stages of the development cycle for dynamic web projects. Well-versed in numerous programming 
+            languages including Ruby, JavaScript, PHP and relational databases like Postgres and MySQL.
           </motion.p>
 
           <motion.div
@@ -42,12 +42,6 @@ const Hero = () => {
             >
               Get in Touch
             </a>
-            <a
-              href="#projects"
-              className="btn border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg text-lg"
-            >
-              View My Work
-            </a>
           </motion.div>
 
           <motion.div
@@ -57,7 +51,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/maniz-stha"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-primary transition-colors"
@@ -67,7 +61,7 @@ const Hero = () => {
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/maniz-stha/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-primary transition-colors"
