@@ -12,7 +12,7 @@ const Hero = () => {
             className="w-full"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-text-light dark:text-text-dark mb-4">
-              Hi, I'm <span className="text-primary-light dark:text-primary">Manish Stha</span>
+              Hi, I'm <span className="text-primary-light dark:text-primary">Manish Shrestha</span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-text-light/80 dark:text-text-dark/80 mb-8">
               Full Stack Software Engineer

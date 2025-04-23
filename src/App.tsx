@@ -18,7 +18,7 @@ function App() {
         </main>
         <footer className="w-full bg-surface-dark text-text-dark py-8">
           <div className="container mx-auto px-4 text-center">
-            <p>&copy; {new Date().getFullYear()} Manish Stha. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Manish Shrestha. All rights reserved.</p>
           </div>
         </footer>
       </div>
