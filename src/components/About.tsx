@@ -8,18 +8,18 @@ const About = () => {
   });
 
   const skills = [
-    { name: 'Ruby', level: 95 },
-    { name: 'JavaScript', level: 95 },
-    { name: 'PHP', level: 90 },
-    { name: 'Python', level: 85 },
-    { name: 'Golang', level: 80 },
+    { name: 'Ruby/Rails', level: 95 },
+    { name: 'JavaScript/TypeScript', level: 95 },
     { name: 'React/Next.js', level: 90 },
-    { name: 'Ruby on Rails', level: 95 },
-    { name: 'AWS', level: 85 },
+    { name: 'Node.js', level: 85 },
+    { name: 'AWS/Cloud', level: 85 },
+    { name: 'PHP/Laravel', level: 90 },
+    { name: 'Python/Django', level: 85 },
+    { name: 'DevOps/CI/CD', level: 80 },
   ];
 
   return (
-    <section id="about" className="w-full section bg-white">
+    <section id="about" className="w-full section bg-surface-light dark:bg-surface-dark transition-colors duration-200">
       <div className="w-full container mx-auto">
         <motion.div
           ref={ref}
@@ -28,42 +28,45 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="w-full"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-text-light dark:text-text-dark mb-12">
             About Me
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 px-4 sm:px-6 lg:px-8">
             <div>
-              <h3 className="text-xl font-semibold mb-4">Who I Am</h3>
-              <p className="text-gray-600 mb-6">
-                I'm a Senior Software Engineer with more than 10 years of experience in backend and frontend development. 
-                My expertise spans across multiple programming languages and frameworks, with a strong focus on building 
-                scalable web applications and e-commerce solutions.
+              <h3 className="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Professional Overview</h3>
+              <p className="text-text-light/70 dark:text-text-dark/70 mb-6">
+                As a Full Stack Software Engineer with extensive experience in enterprise software development, 
+                I specialize in architecting and implementing scalable web applications. My expertise spans 
+                across modern technology stacks, with a particular focus on cloud-native solutions and 
+                distributed systems.
               </p>
-              <p className="text-gray-600 mb-6">
-                I specialize in Ruby, JavaScript, and PHP development, with extensive experience in frameworks like 
-                Ruby on Rails, Next.js, React, and various PHP frameworks. I'm also proficient in working with cloud 
-                services such as AWS, Firebase, and Heroku.
+              <p className="text-text-light/70 dark:text-text-dark/70 mb-6">
+                I excel in developing robust backend systems using Ruby on Rails, Node.js, and Laravel, while 
+                crafting responsive and intuitive user interfaces with React and Next.js. My experience with 
+                cloud platforms like AWS and Firebase enables me to design and deploy highly available and 
+                scalable applications.
               </p>
-              <p className="text-gray-600">
-                My approach to development emphasizes test-driven development, agile methodologies, and maintaining 
-                high-quality code standards. I'm passionate about creating efficient, scalable solutions and mentoring 
-                junior developers to improve team performance.
+              <p className="text-text-light/70 dark:text-text-dark/70">
+                My approach to software development is rooted in engineering best practices, including 
+                test-driven development, continuous integration/deployment, and agile methodologies. 
+                I am passionate about knowledge sharing and have successfully mentored junior developers, 
+                fostering a culture of technical excellence and innovation.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-6">Technical Skills</h3>
+              <h3 className="text-xl font-semibold mb-6 text-text-light dark:text-text-dark">Technical Expertise</h3>
               <div className="space-y-4">
                 {skills.map((skill) => (
                   <div key={skill.name} className="w-full">
                     <div className="flex justify-between mb-1">
-                      <span className="text-gray-700">{skill.name}</span>
-                      <span className="text-gray-600">{skill.level}%</span>
+                      <span className="text-text-light dark:text-text-dark">{skill.name}</span>
+                      <span className="text-text-light/70 dark:text-text-dark/70">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                    <div className="w-full bg-background-light dark:bg-background-dark rounded-full h-2.5">
                       <motion.div
-                        className="bg-primary h-2.5 rounded-full"
+                        className="bg-primary-light dark:bg-primary h-2.5 rounded-full"
                         initial={{ width: 0 }}
                         animate={inView ? { width: `${skill.level}%` } : {}}
                         transition={{ duration: 1, delay: 0.2 }}
@@ -74,15 +77,15 @@ const About = () => {
               </div>
 
               <div className="mt-8">
-                <h3 className="text-xl font-semibold mb-4">Additional Skills</h3>
-                <ul className="list-disc list-inside space-y-2 text-gray-600">
-                  <li>Test Driven Development (TDD)</li>
-                  <li>Docker & Container Technologies</li>
-                  <li>Git Version Control</li>
-                  <li>Agile Development & Scrum</li>
-                  <li>RESTful APIs & Microservices</li>
-                  <li>TypeScript & React Native</li>
-                  <li>Database Design (PostgreSQL, MySQL)</li>
+                <h3 className="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Core Competencies</h3>
+                <ul className="list-disc list-inside space-y-2 text-text-light/70 dark:text-text-dark/70">
+                  <li>Software Architecture & System Design</li>
+                  <li>Test-Driven Development (TDD)</li>
+                  <li>Cloud Architecture & DevOps</li>
+                  <li>Agile & Scrum Methodologies</li>
+                  <li>API Design & Microservices</li>
+                  <li>Performance Optimization</li>
+                  <li>Database Design & Optimization</li>
                 </ul>
               </div>
             </div>

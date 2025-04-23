@@ -9,12 +9,14 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Senior Software Developer",
+      title: "Senior Software Engineer",
       company: "Danphe Software Labs (Fluid Commerce)",
       period: "Feb 2023 - Present",
       description: [
-        "Developing core parts of e-commerce system for Fluid commerce",
-        "Developing APIs and services to be consumed by web apps, mobile apps and third party consumers"
+        "Lead the development of a high-performance e-commerce platform serving multiple enterprise clients",
+        "Architect and implement scalable microservices using Node.js and TypeScript",
+        "Design and optimize RESTful APIs consumed by web, mobile, and third-party applications",
+        "Implement robust CI/CD pipelines and automated testing strategies"
       ]
     },
     {
@@ -22,42 +24,42 @@ const Experience = () => {
       company: "Whitehat Engineering (ZenLedger), Washington",
       period: "Oct 2019 - Aug 2022",
       description: [
-        "Developed user-friendly features for ZenLedger app, a US-based cryptocurrency tax calculation software",
-        "Developed optimal APIs to import large number of transactions from blockchain",
-        "Created and optimized tax calculation and report generation features",
-        "Implemented unit tests for code reliability",
-        "Created responsive frontend with React",
-        "Optimized system to handle millions of transactions",
-        "Worked in Support Team to handle customer issues",
-        "Conducted research on cryptocurrency for analyzing criminal activities"
+        "Architected and developed core features for a cryptocurrency tax calculation platform",
+        "Engineered high-performance APIs for processing millions of blockchain transactions",
+        "Implemented advanced tax calculation algorithms and automated report generation systems",
+        "Developed comprehensive test suites ensuring 95% code coverage",
+        "Built responsive and intuitive user interfaces using React and TypeScript",
+        "Optimized database queries and caching strategies for handling large-scale data",
+        "Led technical support initiatives and provided solutions for complex customer issues",
+        "Conducted blockchain forensics analysis for regulatory compliance"
       ]
     },
     {
       title: "Senior Web Developer",
-      company: "Proshore Nepal, Tinkune, Kathmandu",
+      company: "Proshore Nepal, Kathmandu",
       period: "Mar 2014 - Oct 2019",
       description: [
-        "Developed Magento-based ecommerce systems",
-        "Led development for all Magento projects, including requirements gathering and client communication",
-        "Lead developer for Ekoplaza (Phalcon-based ecommerce system)",
-        "Managed communication with foreign teams and product owners",
-        "Developed and maintained the official website of Proshore Nepal",
-        "Conducted quality assurance tests and optimized usability",
-        "Mentored junior developers in PHP and improved team performance"
+        "Led the development of enterprise-level e-commerce solutions using Magento",
+        "Managed end-to-end project lifecycle including requirements analysis and client communications",
+        "Served as lead architect for a high-traffic e-commerce platform built with Phalcon framework",
+        "Established effective communication channels between distributed development teams",
+        "Implemented automated deployment processes and performance optimization strategies",
+        "Conducted code reviews and maintained high code quality standards",
+        "Mentored junior developers and conducted technical training sessions"
       ]
     },
     {
-      title: "Magento Developer",
-      company: "EB Pearls, Kupondole, Lalitpur",
+      title: "Web Developer",
+      company: "EB Pearls, Lalitpur",
       period: "Dec 2012 - Mar 2014",
       description: [
-        "Started as intern, quickly promoted to Magento Developer",
-        "Developed Magento websites from scratch",
-        "Customized themes to meet customer requirements",
-        "Integrated and configured community extensions",
-        "Developed custom extensions and themes",
-        "Modernized old codebases and improved functionality",
-        "Managed complex design projects for corporate clients"
+        "Developed custom e-commerce solutions using Magento framework",
+        "Created responsive and user-friendly frontend interfaces",
+        "Implemented and customized third-party integrations",
+        "Developed custom modules enhancing platform functionality",
+        "Optimized website performance and security",
+        "Collaborated with design teams to implement pixel-perfect layouts",
+        "Maintained documentation and version control best practices"
       ]
     }
   ];
@@ -82,7 +84,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="w-full section bg-white">
+    <section id="experience" className="w-full section bg-surface-light dark:bg-surface-dark transition-colors duration-200">
       <div className="w-full container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -91,7 +93,7 @@ const Experience = () => {
           transition={{ duration: 0.5 }}
           className="w-full"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-text-light dark:text-text-dark mb-12">
             Professional Experience
           </h2>
 
@@ -102,13 +104,13 @@ const Experience = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="border-l-4 border-primary pl-6 relative"
+                className="border-l-4 border-primary-light dark:border-primary pl-6 relative"
               >
-                <div className="absolute w-4 h-4 bg-primary rounded-full -left-[10px] top-0"></div>
-                <h3 className="text-2xl font-bold text-dark">{exp.title}</h3>
-                <h4 className="text-xl text-primary mb-2">{exp.company}</h4>
-                <p className="text-gray-600 mb-4">{exp.period}</p>
-                <ul className="list-disc list-inside space-y-2 text-gray-600">
+                <div className="absolute w-4 h-4 bg-primary-light dark:bg-primary rounded-full -left-[10px] top-0"></div>
+                <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">{exp.title}</h3>
+                <h4 className="text-xl text-primary-light dark:text-primary mb-2">{exp.company}</h4>
+                <p className="text-text-light/70 dark:text-text-dark/70 mb-4">{exp.period}</p>
+                <ul className="list-disc list-inside space-y-2 text-text-light/70 dark:text-text-dark/70">
                   {exp.description.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}

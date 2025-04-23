@@ -10,7 +10,7 @@
   }
   
   body {
-    @apply bg-light text-dark font-sans m-0 min-h-screen w-full;
+    @apply bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans m-0 min-h-screen w-full transition-colors duration-200;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -28,7 +28,7 @@
   }
   
   .btn-primary {
-    @apply bg-primary text-white hover:bg-secondary;
+    @apply bg-primary-light hover:bg-primary-dark text-white dark:bg-primary-dark dark:hover:bg-primary;
   }
   
   .section {
@@ -36,7 +36,11 @@
   }
 
   .input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary;
+    @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md 
+    focus:ring-2 focus:ring-primary-light dark:focus:ring-primary 
+    focus:border-primary-light dark:focus:border-primary
+    bg-surface-light dark:bg-surface-dark
+    text-text-light dark:text-text-dark;
   }
 }
 
@@ -89,13 +93,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  @apply border-primary-light dark:border-primary;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
