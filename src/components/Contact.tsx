@@ -1,11 +1,75 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useState, FormEvent } from 'react';
 
 const Contact = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: false,
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus({ submitting: true, submitted: false, error: false, message: 'Sending...' });
+
+    try {
+      const response = await fetch('http://localhost:3001/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message');
+      }
+
+      setStatus({
+        submitting: false,
+        submitted: true,
+        error: false,
+        message: 'Message sent successfully!'
+      });
+      setFormData({ name: '', email: '', message: '' });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setStatus(prev => ({ ...prev, submitted: false, message: '' }));
+      }, 5000);
+
+    } catch (error) {
+      setStatus({
+        submitting: false,
+        submitted: false,
+        error: true,
+        message: 'Failed to send message. Please try again.'
+      });
+    }
+  };
 
   return (
     <section id="contact" className="w-full section bg-surface-light dark:bg-surface-dark transition-colors duration-200">
@@ -42,14 +106,6 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center space-x-4">
                   <svg className="w-6 h-6 text-primary-light dark:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <a href="tel:+9779849193666" className="text-text-light/70 dark:text-text-dark/70 hover:text-primary-light dark:hover:text-primary transition-colors">
-                    +977 984-919-3666
-                  </a>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <svg className="w-6 h-6 text-primary-light dark:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                   <a
@@ -66,14 +122,18 @@ const Contact = () => {
 
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-text-light dark:text-text-dark">Send a Message</h3>
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-text-light dark:text-text-dark mb-2">Full Name</label>
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="input"
                     placeholder="Enter your full name"
+                    required
                   />
                 </div>
                 <div>
@@ -81,24 +141,38 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="input"
                     placeholder="Enter your email address"
+                    required
                   />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-text-light dark:text-text-dark mb-2">Message</label>
                   <textarea
                     id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={4}
                     className="input"
                     placeholder="How can I assist you?"
+                    required
                   ></textarea>
                 </div>
+                {status.message && (
+                  <div className={`text-sm ${status.error ? 'text-red-500' : 'text-green-500'}`}>
+                    {status.message}
+                  </div>
+                )}
                 <button
                   type="submit"
-                  className="w-full btn btn-primary"
+                  disabled={status.submitting}
+                  className={`w-full btn btn-primary ${status.submitting ? 'opacity-75 cursor-not-allowed' : ''}`}
                 >
-                  Send Message
+                  {status.submitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
