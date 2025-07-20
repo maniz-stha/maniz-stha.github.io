@@ -16,10 +16,24 @@ const About = () => {
   return (
     <section id="about" className="w-full flex justify-center bg-[#fafbfc] py-20 px-4">
       <div className="w-full max-w-5xl flex flex-col gap-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-left">About Me</h2>
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold mb-4 text-left"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          About Me
+        </motion.h2>
         <div className="flex flex-col md:flex-row gap-12">
           {/* Left: Overview */}
-          <div className="flex-1 flex flex-col gap-8">
+          <motion.div 
+            className="flex-1 flex flex-col gap-8"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <div>
               <h3 className="text-xl font-semibold mb-2">Professional Overview</h3>
               <p className="text-neutral-600 mb-4">
@@ -32,19 +46,29 @@ const About = () => {
                 My approach to software development is rooted in engineering best practices, including test-driven development, continuous integration/deployment, and agile methodologies. I am passionate about knowledge sharing and have successfully mentored junior developers.
               </p>
             </div>
-          </div>
+          </motion.div>
           {/* Right: Skills */}
-          <div className="flex-1 flex flex-col gap-8">
+          <motion.div 
+            className="flex-1 flex flex-col gap-8"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             <div>
               <h3 className="text-xl font-semibold mb-4">Technical Expertise</h3>
               <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <span
+                {skills.map((skill, index) => (
+                  <motion.span
                     key={skill}
                     className="px-4 py-2 bg-neutral-100 text-neutral-700 rounded-full text-sm font-medium"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.1 * index }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -60,7 +84,7 @@ const About = () => {
                 <li>Database Design & Optimization</li>
               </ul>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

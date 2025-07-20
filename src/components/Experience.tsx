@@ -80,10 +80,25 @@ const Experience = () => {
   return (
     <section id="experience" className="w-full flex justify-center bg-[#fafbfc] py-20 px-4">
       <div className="w-full max-w-5xl flex flex-col gap-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-left">Professional Experience</h2>
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold mb-4 text-left"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Professional Experience
+        </motion.h2>
         <div className="flex flex-col gap-10">
           {experiences.map((exp, index) => (
-            <div key={index} className="flex gap-6 items-start">
+            <motion.div 
+              key={index} 
+              className="flex gap-6 items-start"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 * index }}
+            >
               <div className="pt-2">
                 <div className="w-2 h-2 rounded-full bg-neutral-800 mb-1" />
                 {index < experiences.length - 1 && (
@@ -102,20 +117,33 @@ const Experience = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <section id="portfolio">
+        <motion.section 
+          id="portfolio"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <h3 className="text-2xl font-bold mb-4">Portfolio</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {freelanceProjects.map((project, index) => (
-              <div key={index} className="p-5 border border-neutral-100 rounded-lg bg-white flex flex-col gap-2">
+              <motion.div 
+                key={index} 
+                className="p-5 border border-neutral-100 rounded-lg bg-white flex flex-col gap-2"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+              >
                 <span className="font-semibold text-neutral-800">{project.name}</span>
                 <span className="text-neutral-500 text-sm">{project.description}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
       </div>
     </section>
   );
