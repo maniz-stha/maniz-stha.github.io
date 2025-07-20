@@ -16,10 +16,10 @@ const Hero = () => {
           <div className="text-base text-neutral-500 mb-10 max-w-lg">
             A seasoned Software Engineer with over a decade of expertise in full-stack development. Arctic Code Vault Contributor and active open-source enthusiast with achievements in pair programming and collaborative development. Specializing in building scalable web applications and enterprise solutions with a focus on modern technologies and cloud platforms.
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="text-base font-medium tracking-wide px-6 py-3 border border-neutral-300 rounded-full hover:bg-neutral-100 transition-colors"
+              className="text-base font-medium tracking-wide px-6 py-3 border-2 border-neutral-300 text-neutral-700 rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-colors"
             >
               Get in Touch
             </a>
@@ -27,7 +27,7 @@ const Hero = () => {
               href="https://github.com/maniz-stha"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base font-medium tracking-wide px-6 py-3 border border-neutral-300 rounded-full hover:bg-neutral-100 transition-colors"
+              className="text-base font-medium tracking-wide px-6 py-3 border-2 border-neutral-300 text-neutral-700 rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-colors"
             >
               GitHub
             </a>
@@ -35,9 +35,17 @@ const Hero = () => {
               href="https://www.linkedin.com/in/maniz-stha/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base font-medium tracking-wide px-6 py-3 border border-neutral-300 rounded-full hover:bg-neutral-100 transition-colors"
+              className="text-base font-medium tracking-wide px-6 py-3 border-2 border-neutral-300 text-neutral-700 rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-colors"
             >
               LinkedIn
+            </a>
+            <a
+              href="/manish_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base font-medium tracking-wide px-6 py-3 border-2 border-neutral-300 text-neutral-700 rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-colors"
+            >
+              Download Resume
             </a>
           </div>
         </div>

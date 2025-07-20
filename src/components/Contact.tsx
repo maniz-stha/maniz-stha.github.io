@@ -50,7 +50,7 @@ const Contact = () => {
             <div>
               <h3 className="text-xl font-semibold mb-2">Contact Details</h3>
               <div className="flex flex-col gap-3 text-neutral-600 text-base">
-                <div>Dhalko, Kathmandu, Nepal</div>
+                <div>Chikanmugal, Kathmandu, Nepal</div>
                 <div>
                   <a href="mailto:me@shresthamanis.com.np" className="underline hover:text-neutral-800">me@shresthamanis.com.np</a>
                 </div>
