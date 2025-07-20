@@ -78,10 +78,10 @@ const freelanceProjects = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="w-full flex justify-center bg-[#fafbfc] py-20 px-4">
-      <div className="w-full max-w-5xl flex flex-col gap-12">
+    <section id="experience" className="w-full flex justify-center bg-[#fafbfc] py-12 sm:py-20 px-4">
+      <div className="w-full max-w-5xl flex flex-col gap-8 sm:gap-12">
         <motion.h2 
-          className="text-4xl md:text-5xl font-bold mb-4 text-left"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -89,11 +89,11 @@ const Experience = () => {
         >
           Professional Experience
         </motion.h2>
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-8 sm:gap-10">
           {experiences.map((exp, index) => (
             <motion.div 
               key={index} 
-              className="flex gap-6 items-start"
+              className="flex gap-4 sm:gap-6 items-start"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -102,16 +102,16 @@ const Experience = () => {
               <div className="pt-2">
                 <div className="w-2 h-2 rounded-full bg-neutral-800 mb-1" />
                 {index < experiences.length - 1 && (
-                  <div className="w-px h-24 bg-neutral-200 mx-auto" />
+                  <div className="w-px h-20 sm:h-24 bg-neutral-200 mx-auto" />
                 )}
               </div>
               <div className="flex-1">
-                <div className="flex flex-col md:flex-row md:items-center md:gap-4 mb-1">
-                  <span className="text-xl font-semibold text-neutral-800">{exp.title}</span>
-                  <span className="text-neutral-400 text-base">@ {exp.company}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 mb-1">
+                  <span className="text-lg sm:text-xl font-semibold text-neutral-800">{exp.title}</span>
+                  <span className="text-neutral-400 text-sm sm:text-base">@ {exp.company}</span>
                 </div>
-                <div className="text-sm text-neutral-500 mb-2">{exp.period}</div>
-                <ul className="list-disc list-inside text-neutral-600 text-sm space-y-1">
+                <div className="text-xs sm:text-sm text-neutral-500 mb-2">{exp.period}</div>
+                <ul className="list-disc list-inside text-neutral-600 text-xs sm:text-sm space-y-1">
                   {exp.description.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
@@ -127,19 +127,19 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h3 className="text-2xl font-bold mb-4">Portfolio</h3>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h3 className="text-xl sm:text-2xl font-bold mb-4">Portfolio</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {freelanceProjects.map((project, index) => (
               <motion.div 
                 key={index} 
-                className="p-5 border border-neutral-100 rounded-lg bg-white flex flex-col gap-2"
+                className="p-4 sm:p-5 border border-neutral-100 rounded-lg bg-white flex flex-col gap-2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
               >
-                <span className="font-semibold text-neutral-800">{project.name}</span>
-                <span className="text-neutral-500 text-sm">{project.description}</span>
+                <span className="font-semibold text-neutral-800 text-sm sm:text-base">{project.name}</span>
+                <span className="text-neutral-500 text-xs sm:text-sm">{project.description}</span>
               </motion.div>
             ))}
           </div>

@@ -42,10 +42,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="w-full flex justify-center bg-[#fafbfc] py-20 px-4">
-      <div className="w-full max-w-4xl flex flex-col gap-12">
+    <section id="contact" className="w-full flex justify-center bg-[#fafbfc] py-12 sm:py-20 px-4">
+      <div className="w-full max-w-4xl flex flex-col gap-8 sm:gap-12">
         <motion.h2 
-          className="text-4xl md:text-5xl font-bold mb-4 text-left"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,7 +53,7 @@ const Contact = () => {
         >
           Let's Connect
         </motion.h2>
-        <div className="flex flex-col md:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-8 sm:gap-12">
           {/* Contact Details */}
           <motion.div 
             className="flex-1 flex flex-col gap-6"
@@ -63,8 +63,8 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div>
-              <h3 className="text-xl font-semibold mb-2">Contact Details</h3>
-              <div className="flex flex-col gap-3 text-neutral-600 text-base">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">Contact Details</h3>
+              <div className="flex flex-col gap-3 text-neutral-600 text-sm sm:text-base">
                 <div>Chikanmugal, Kathmandu, Nepal</div>
                 <div>
                   <a href="mailto:me@shresthamanis.com.np" className="underline hover:text-neutral-800">me@shresthamanis.com.np</a>
@@ -83,43 +83,43 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h3 className="text-xl font-semibold mb-2">Send a Message</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-2">Send a Message</h3>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
-                <label htmlFor="name" className="block text-neutral-700 mb-1">Full Name</label>
+                <label htmlFor="name" className="block text-neutral-700 mb-1 text-sm sm:text-base">Full Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full border border-neutral-200 rounded px-4 py-2 focus:outline-none focus:border-neutral-400 bg-white"
+                  className="w-full border border-neutral-200 rounded px-3 sm:px-4 py-2 focus:outline-none focus:border-neutral-400 bg-white text-sm sm:text-base"
                   placeholder="Enter your full name"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-neutral-700 mb-1">Email Address</label>
+                <label htmlFor="email" className="block text-neutral-700 mb-1 text-sm sm:text-base">Email Address</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full border border-neutral-200 rounded px-4 py-2 focus:outline-none focus:border-neutral-400 bg-white"
+                  className="w-full border border-neutral-200 rounded px-3 sm:px-4 py-2 focus:outline-none focus:border-neutral-400 bg-white text-sm sm:text-base"
                   placeholder="Enter your email address"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-neutral-700 mb-1">Message</label>
+                <label htmlFor="message" className="block text-neutral-700 mb-1 text-sm sm:text-base">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full border border-neutral-200 rounded px-4 py-2 focus:outline-none focus:border-neutral-400 bg-white"
+                  className="w-full border border-neutral-200 rounded px-3 sm:px-4 py-2 focus:outline-none focus:border-neutral-400 bg-white text-sm sm:text-base"
                   placeholder="How can I assist you?"
                   required
                 ></textarea>
@@ -130,7 +130,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status.submitting}
-                className={`w-full mt-2 px-6 py-3 rounded bg-neutral-800 text-white font-semibold hover:bg-neutral-900 transition-colors ${status.submitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                className={`w-full mt-2 px-4 sm:px-6 py-2 sm:py-3 rounded bg-neutral-800 text-white font-semibold hover:bg-neutral-900 transition-colors text-sm sm:text-base ${status.submitting ? 'opacity-75 cursor-not-allowed' : ''}`}
               >
                 {status.submitting ? 'Sending...' : 'Send Message'}
               </button>
