@@ -51,6 +51,7 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <a
           href="#contact"
+          data-book-call-button
           className="hidden md:block text-sm font-medium tracking-wide px-5 py-2 border border-neutral-300 rounded-full hover:bg-neutral-100 transition-colors"
           style={{ fontFamily: 'Montserrat, system-ui, sans-serif' }}
         >

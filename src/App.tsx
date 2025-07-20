@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
+import ScrollToTop from './components/ScrollToTop';
 import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <p>&copy; {new Date().getFullYear()} Manish Shrestha. All rights reserved.</p>
           </div>
         </footer>
+        <ScrollToTop />
       </div>
     </ThemeProvider>
   );
