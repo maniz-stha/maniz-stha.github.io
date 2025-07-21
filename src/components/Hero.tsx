@@ -14,7 +14,7 @@ const Hero = () => {
         <span className="vertical-text hidden sm:block">Product Designer</span>
         <span className="vertical-text hidden sm:block">2024</span>
       </motion.div>
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 sm:px-8 py-12 sm:py-20 gap-8 lg:gap-12">
+      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 sm:px-8 py-6 sm:py-12 gap-6 lg:gap-10">
         {/* Left: Greeting, subtitle, stats */}
         <motion.div 
           className="flex-1 flex flex-col items-start justify-center max-w-2xl order-2 lg:order-1"
