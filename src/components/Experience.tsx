@@ -78,8 +78,8 @@ const freelanceProjects = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="w-full flex justify-center bg-[#fafbfc] py-12 sm:py-20 px-4">
-      <div className="w-full max-w-5xl flex flex-col gap-8 sm:gap-12">
+    <section id="experience" className="w-full flex justify-center bg-[#fafbfc] py-6 sm:py-12 px-4">
+      <div className="w-full max-w-5xl flex flex-col gap-4 sm:gap-8">
         <motion.h2 
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left"
           initial={{ opacity: 0, y: 30 }}
@@ -122,12 +122,21 @@ const Experience = () => {
         </div>
         <motion.section 
           id="portfolio"
+          className="mt-12 sm:mt-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h3 className="text-xl sm:text-2xl font-bold mb-4">Portfolio</h3>
+          <motion.h2 
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Portfolio
+          </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {freelanceProjects.map((project, index) => (
               <motion.div 

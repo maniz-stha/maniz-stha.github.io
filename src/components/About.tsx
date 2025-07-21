@@ -14,8 +14,8 @@ const skills = [
 
 const About = () => {
   return (
-    <section id="about" className="w-full flex justify-center bg-[#fafbfc] py-12 sm:py-20 px-4">
-      <div className="w-full max-w-5xl flex flex-col gap-8 sm:gap-12">
+    <section id="about" className="w-full flex justify-center bg-[#fafbfc] py-6 sm:py-12 px-4">
+      <div className="w-full max-w-5xl flex flex-col gap-4 sm:gap-8">
         <motion.h2 
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left"
           initial={{ opacity: 0, y: 30 }}
@@ -25,7 +25,7 @@ const About = () => {
         >
           About Me
         </motion.h2>
-        <div className="flex flex-col lg:flex-row gap-8 sm:gap-12">
+        <div className="flex flex-col lg:flex-row gap-4 sm:gap-8">
           {/* Left: Overview */}
           <motion.div 
             className="flex-1 flex flex-col gap-6 sm:gap-8"
@@ -51,7 +51,7 @@ const About = () => {
           <motion.div 
             className="flex-1 flex flex-col gap-6 sm:gap-8"
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
