@@ -1,0 +1,62 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run linting
+      run: npm run lint
+      
+    - name: Build application
+      run: npm run build
+      
+    - name: Setup SSH
+      if: github.ref == 'refs/heads/main'
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+        
+    - name: Deploy to server
+      if: github.ref == 'refs/heads/main'
+      run: |
+        # Install rsync if not available
+        sudo apt-get update && sudo apt-get install -y rsync
+        
+        # Copy files to server
+        rsync -avz --delete dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}
+        
+        # Restart Nginx
+        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} 'sudo systemctl restart nginx'
+        
+    - name: Deploy success notification
+      if: github.ref == 'refs/heads/main' && success()
+      run: |
+        echo "✅ Deployment completed successfully!"
+        echo "🚀 Your site has been updated at: ${{ secrets.SITE_URL }}"
+        
+    - name: Deploy failure notification
+      if: github.ref == 'refs/heads/main' && failure()
+      run: |
+        echo "❌ Deployment failed!"
+        echo "Please check the logs above for more details." 

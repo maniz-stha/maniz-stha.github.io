@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#fafbfc] text-neutral-900 font-sans m-0 min-h-screen w-full transition-colors duration-200;
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-base font-light tracking-wide uppercase px-4 py-2 hover:text-black/80 transition-colors;
+  }
+  .hero-greeting {
+    font-size: clamp(2.5rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+  .hero-subtitle {
+    @apply text-lg font-light text-neutral-500 mt-2;
+  }
+  .hero-stats {
+    @apply flex gap-10 mb-8 mt-2;
+  }
+  .hero-stat {
+    @apply flex flex-col items-start;
+  }
+  .hero-stat-value {
+    @apply text-2xl font-semibold text-black;
+  }
+  .hero-stat-label {
+    @apply text-xs font-light text-neutral-500;
+  }
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    @apply text-xs text-neutral-400 tracking-widest;
+  }
+}
