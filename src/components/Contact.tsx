@@ -234,7 +234,7 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  The contact form API is currently being set up and will be ready soon. For now, please reach out directly via email or LinkedIn.
+                  The contact form is currently being set up and will be ready soon. For now, please reach out directly via email or LinkedIn.
                 </motion.p>
 
                 {/* Action buttons */}
