@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion';
 
 const skills = [
-  'Ruby/Rails',
+  'Ruby on Rails',
   'JavaScript/TypeScript',
   'React/Next.js',
   'Node.js',
-  'AWS/Cloud',
-  'PHP/Laravel',
-  'Python/Django',
-  'DevOps/CI/CD',
+  'AWS',
+  'Google Cloud Platform',
+  'CI/CD',
   'Magento',
+  'PHP/Laravel',
+  'Python',
 ];
 
 const About = () => {

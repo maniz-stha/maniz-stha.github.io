@@ -11,8 +11,8 @@ const Hero = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <span className="vertical-text hidden sm:block">Product Designer</span>
-        <span className="vertical-text hidden sm:block">2024</span>
+        <span className="vertical-text hidden sm:block">Software Developer</span>
+        <span className="vertical-text hidden sm:block">2025</span>
       </motion.div>
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 sm:px-8 py-6 sm:py-12 gap-6 lg:gap-10">
         {/* Left: Greeting, subtitle, stats */}
@@ -39,7 +39,7 @@ const Hero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            — It's Manish Shrestha, a Full Stack Software Engineer
+            — It's Manish Shrestha, a Full Stack Software Developer 
           </motion.div>
           <motion.div 
             className="text-sm sm:text-base text-neutral-500 mb-8 sm:mb-10 max-w-lg"
@@ -48,7 +48,7 @@ const Hero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            A seasoned Software Engineer with over a decade of expertise in full-stack development. Arctic Code Vault Contributor and active open-source enthusiast with achievements in pair programming and collaborative development. Specializing in building scalable web applications and enterprise solutions with a focus on modern technologies and cloud platforms.
+            A seasoned Software Engineer with over a decade of expertise in full-stack development. Specializing in building scalable web applications and enterprise solutions with a focus on modern technologies and cloud platforms.
           </motion.div>
           <motion.div 
             className="flex flex-wrap gap-2 sm:gap-3 w-full"
