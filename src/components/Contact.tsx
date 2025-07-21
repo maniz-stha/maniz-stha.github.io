@@ -36,7 +36,7 @@ const Contact = () => {
       setStatus({ submitting: false, submitted: true, error: false, message: 'Message sent successfully!' });
       setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setStatus(prev => ({ ...prev, submitted: false, message: '' })), 5000);
-    } catch (error) {
+    } catch {
       setStatus({ submitting: false, submitted: false, error: true, message: 'Failed to send message. Please try again.' });
     }
   };

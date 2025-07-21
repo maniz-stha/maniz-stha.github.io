@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../contexts/ThemeContext';
 
 const navItems = [
   { name: 'About Me', href: '#about' },
@@ -10,7 +9,6 @@ const navItems = [
 ];
 
 const Navbar = () => {
-  const { isDarkMode, toggleDarkMode } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
