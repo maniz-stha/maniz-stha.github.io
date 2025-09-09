@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section id="home" className="w-full min-h-screen flex items-center justify-center bg-[#fafbfc] relative overflow-hidden">
+    <section id="home" className="w-full min-h-screen flex items-center justify-center bg-[#fafbfc] dark:bg-slate-900 relative overflow-hidden transition-colors duration-200">
       {/* Vertical Text and Year */}
       <motion.div
         className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-8 pl-2 sm:pl-4"
@@ -42,7 +42,7 @@ const Hero = () => {
             — It's Manish Shrestha, a Full Stack Software Developer
           </motion.div>
           <motion.div
-            className="text-sm sm:text-base text-neutral-500 mb-8 sm:mb-10 max-w-lg"
+            className="text-sm sm:text-base text-neutral-500 dark:text-gray-400 mb-8 sm:mb-10 max-w-lg"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -59,7 +59,7 @@ const Hero = () => {
           >
             <a
               href="#contact"
-              className="text-sm sm:text-base font-medium tracking-wide px-4 sm:px-6 py-2 sm:py-3 border-2 border-neutral-300 text-neutral-700 rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-colors"
+              className="text-sm sm:text-base font-medium tracking-wide px-4 sm:px-6 py-2 sm:py-3 border-2 border-neutral-300 dark:border-slate-600 text-neutral-700 dark:text-gray-300 rounded-full hover:bg-neutral-50 dark:hover:bg-slate-800 hover:border-neutral-400 dark:hover:border-slate-500 transition-colors"
             >
               Get in Touch
             </a>
@@ -67,7 +67,7 @@ const Hero = () => {
               href="https://github.com/maniz-stha"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm sm:text-base font-medium tracking-wide px-4 sm:px-6 py-2 sm:py-3 border-2 border-neutral-300 text-neutral-700 rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-colors"
+              className="text-sm sm:text-base font-medium tracking-wide px-4 sm:px-6 py-2 sm:py-3 border-2 border-neutral-300 dark:border-slate-600 text-neutral-700 dark:text-gray-300 rounded-full hover:bg-neutral-50 dark:hover:bg-slate-800 hover:border-neutral-400 dark:hover:border-slate-500 transition-colors"
             >
               GitHub
             </a>
@@ -75,7 +75,7 @@ const Hero = () => {
               href="https://www.linkedin.com/in/maniz-stha/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm sm:text-base font-medium tracking-wide px-4 sm:px-6 py-2 sm:py-3 border-2 border-neutral-300 text-neutral-700 rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-colors"
+              className="text-sm sm:text-base font-medium tracking-wide px-4 sm:px-6 py-2 sm:py-3 border-2 border-neutral-300 dark:border-slate-600 text-neutral-700 dark:text-gray-300 rounded-full hover:bg-neutral-50 dark:hover:bg-slate-800 hover:border-neutral-400 dark:hover:border-slate-500 transition-colors"
             >
               LinkedIn
             </a>
@@ -83,7 +83,7 @@ const Hero = () => {
               href="/manish_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm sm:text-base font-medium tracking-wide px-4 sm:px-6 py-2 sm:py-3 border-2 border-neutral-300 text-neutral-700 rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-colors"
+              className="text-sm sm:text-base font-medium tracking-wide px-4 sm:px-6 py-2 sm:py-3 border-2 border-neutral-300 dark:border-slate-600 text-neutral-700 dark:text-gray-300 rounded-full hover:bg-neutral-50 dark:hover:bg-slate-800 hover:border-neutral-400 dark:hover:border-slate-500 transition-colors"
             >
               Download Resume
             </a>
@@ -100,7 +100,7 @@ const Hero = () => {
           <img
             src="/1648823380064.jpeg"
             alt="Manish Shrestha - Profile"
-            className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] rounded-2xl object-cover shadow-xl border border-neutral-200 bg-white"
+            className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] rounded-2xl object-cover shadow-xl border border-neutral-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-colors duration-200"
             style={{ maxWidth: '90vw' }}
           />
         </motion.div>

@@ -78,10 +78,10 @@ const freelanceProjects = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="w-full flex justify-center bg-[#fafbfc] py-6 sm:py-12 px-4">
+    <section id="experience" className="w-full flex justify-center bg-[#fafbfc] dark:bg-slate-900 py-6 sm:py-12 px-4 transition-colors duration-200">
       <div className="w-full max-w-5xl flex flex-col gap-4 sm:gap-8">
         <motion.h2 
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left text-black dark:text-white"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -100,18 +100,18 @@ const Experience = () => {
               transition={{ duration: 0.6, delay: 0.1 * index }}
             >
               <div className="pt-2">
-                <div className="w-2 h-2 rounded-full bg-neutral-800 mb-1" />
+                <div className="w-2 h-2 rounded-full bg-neutral-800 dark:bg-slate-300 mb-1" />
                 {index < experiences.length - 1 && (
-                  <div className="w-px h-20 sm:h-24 bg-neutral-200 mx-auto" />
+                  <div className="w-px h-20 sm:h-24 bg-neutral-200 dark:bg-slate-700 mx-auto" />
                 )}
               </div>
               <div className="flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 mb-1">
-                  <span className="text-lg sm:text-xl font-semibold text-neutral-800">{exp.title}</span>
-                  <span className="text-neutral-400 text-sm sm:text-base">@ {exp.company}</span>
+                  <span className="text-lg sm:text-xl font-semibold text-neutral-800 dark:text-white">{exp.title}</span>
+                  <span className="text-neutral-400 dark:text-gray-400 text-sm sm:text-base">@ {exp.company}</span>
                 </div>
-                <div className="text-xs sm:text-sm text-neutral-500 mb-2">{exp.period}</div>
-                <ul className="list-disc list-inside text-neutral-600 text-xs sm:text-sm space-y-1">
+                <div className="text-xs sm:text-sm text-neutral-500 dark:text-gray-500 mb-2">{exp.period}</div>
+                <ul className="list-disc list-inside text-neutral-600 dark:text-gray-400 text-xs sm:text-sm space-y-1">
                   {exp.description.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
@@ -129,7 +129,7 @@ const Experience = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left text-black dark:text-white"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -141,14 +141,14 @@ const Experience = () => {
             {freelanceProjects.map((project, index) => (
               <motion.div 
                 key={index} 
-                className="p-4 sm:p-5 border border-neutral-100 rounded-lg bg-white flex flex-col gap-2"
+                className="p-4 sm:p-5 border border-neutral-100 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 flex flex-col gap-2 transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
               >
-                <span className="font-semibold text-neutral-800 text-sm sm:text-base">{project.name}</span>
-                <span className="text-neutral-500 text-xs sm:text-sm">{project.description}</span>
+                <span className="font-semibold text-neutral-800 dark:text-white text-sm sm:text-base">{project.name}</span>
+                <span className="text-neutral-500 dark:text-gray-400 text-xs sm:text-sm">{project.description}</span>
               </motion.div>
             ))}
           </div>

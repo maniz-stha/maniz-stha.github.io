@@ -15,10 +15,10 @@ const skills = [
 
 const About = () => {
   return (
-    <section id="about" className="w-full flex justify-center bg-[#fafbfc] py-6 sm:py-12 px-4">
+    <section id="about" className="w-full flex justify-center bg-[#fafbfc] dark:bg-slate-900 py-6 sm:py-12 px-4 transition-colors duration-200">
       <div className="w-full max-w-5xl flex flex-col gap-4 sm:gap-8">
         <motion.h2 
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left text-black dark:text-white"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -36,14 +36,14 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">Professional Overview</h3>
-              <p className="text-sm sm:text-base text-neutral-600 mb-4">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-black dark:text-white">Professional Overview</h3>
+              <p className="text-sm sm:text-base text-neutral-600 dark:text-gray-400 mb-4">
                 As a Full Stack Software Engineer with extensive experience in enterprise software development, I specialize in architecting and implementing scalable web applications. My expertise spans across modern technology stacks, with a particular focus on cloud-native solutions and distributed systems.
               </p>
-              <p className="text-sm sm:text-base text-neutral-600 mb-4">
+              <p className="text-sm sm:text-base text-neutral-600 dark:text-gray-400 mb-4">
                 I excel in developing robust backend systems and crafting responsive and intuitive user interfaces. My experience with cloud platforms enables me to design and deploy highly available and scalable applications.
               </p>
-              <p className="text-sm sm:text-base text-neutral-600 mb-4">
+              <p className="text-sm sm:text-base text-neutral-600 dark:text-gray-400 mb-4">
                 My approach to software development is rooted in engineering best practices, including test-driven development, continuous integration/deployment, and agile methodologies. I am passionate about knowledge sharing and have successfully mentored junior developers.
               </p>
             </div>
@@ -57,12 +57,12 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-4">Technical Expertise</h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-4 text-black dark:text-white">Technical Expertise</h3>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
                   <motion.span
                     key={skill}
-                    className="px-3 sm:px-4 py-2 bg-neutral-100 text-neutral-700 rounded-full text-xs sm:text-sm font-medium"
+                    className="px-3 sm:px-4 py-2 bg-neutral-100 dark:bg-slate-800 text-neutral-700 dark:text-gray-300 rounded-full text-xs sm:text-sm font-medium transition-colors"
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -74,8 +74,8 @@ const About = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">Core Competencies</h3>
-              <ul className="list-disc list-inside space-y-1 sm:space-y-2 text-neutral-600 text-xs sm:text-sm">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-black dark:text-white">Core Competencies</h3>
+              <ul className="list-disc list-inside space-y-1 sm:space-y-2 text-neutral-600 dark:text-gray-400 text-xs sm:text-sm">
                 <li>Software Architecture & System Design</li>
                 <li>Test-Driven Development (TDD)</li>
                 <li>Cloud Architecture & DevOps</li>
