@@ -2,14 +2,24 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    title: "Senior Software Engineer",
-    company: "Danphe Software Labs (Fluid Commerce)",
-    period: "Feb 2023 - Present",
+    title: "Senior Software Developer",
+    company: "Fluid Tech · Utah, US (Remote)",
+    period: "Aug 2024 - Present",
     description: [
-      "Lead the development of a high-performance e-commerce platform serving multiple enterprise clients",
-      "Architect and implement scalable microservices using Node.js and TypeScript",
-      "Design and optimize RESTful APIs consumed by web, mobile, and third-party applications",
-      "Implement robust CI/CD pipelines and automated testing strategies"
+      "Transitioned to a direct contractor role with Fluid Tech, maintaining continuity of backend development on the same platform",
+      "Continuing to maintain, optimise, and extend backend systems ensuring high performance and reliability",
+      "Collaborating directly with the Fluid Tech engineering team on ongoing feature development and system improvements"
+    ]
+  },
+  {
+    title: "Senior Software Developer",
+    company: "Danphe Software Labs · Kathmandu, Nepal (On-site)",
+    period: "Feb 2023 - Jul 2024",
+    description: [
+      "Specialised in Ruby on Rails backend development for Fluid Tech's multi-tenant direct sales platform, covering eCommerce and checkout systems",
+      "Designed and built core backend services and REST APIs consumed by web, mobile, and third-party integrations",
+      "Developed and enhanced systems for shipping, taxation, and subscription management",
+      "Owned features end-to-end from schema design through to deployment and monitoring"
     ]
   },
   {
