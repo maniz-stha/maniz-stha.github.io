@@ -48,7 +48,7 @@ const Hero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            A seasoned Software Engineer with over a decade of expertise in full-stack development. Specializing in building scalable web applications and enterprise solutions with a focus on modern technologies and cloud platforms.
+            A seasoned Software Engineer with over a dozen years of expertise in full-stack development. Specializing in building scalable web applications and enterprise solutions with a focus on modern technologies and cloud platforms.
           </motion.div>
           <motion.div
             className="flex flex-wrap gap-2 sm:gap-3 w-full"
