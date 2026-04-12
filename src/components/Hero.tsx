@@ -39,7 +39,7 @@ const Hero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            — It's Manish Shrestha, a Full Stack Software Developer
+            — I'm Manish Shrestha, a Full Stack Software Developer
           </motion.div>
           <motion.div
             className="text-sm sm:text-base text-neutral-500 dark:text-gray-400 mb-8 sm:mb-10 max-w-lg"
