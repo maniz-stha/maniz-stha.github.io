@@ -8,7 +8,7 @@ interface ChatResponse {
   session_id: string;
 }
 
-const API_BASE_URL = import.meta.env.AI_ASSISTANT_API_URL || 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_AI_ASSISTANT_API_URL || 'http://localhost:8000';
 
 export async function sendChatMessage(message: string, sessionId: string): Promise<ChatResponse> {
   const response = await fetch(`${API_BASE_URL}/chat`, {
