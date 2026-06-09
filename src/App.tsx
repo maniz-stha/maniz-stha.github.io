@@ -4,6 +4,7 @@ import About from './components/About';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import { ChatAssistant } from './components/ChatAssistant';
 import { DarkModeProvider } from './contexts/DarkModeContext';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           </div>
         </footer>
         <ScrollToTop />
+        <ChatAssistant />
       </div>
     </DarkModeProvider>
   );
