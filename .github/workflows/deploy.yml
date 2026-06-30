@@ -25,6 +25,7 @@ jobs:
         run: npm run build
         env:
           VITE_AI_ASSISTANT_API_URL: ${{ secrets.VITE_AI_ASSISTANT_API_URL }}
+          VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
 
       - name: Setup SSH
         run: |
