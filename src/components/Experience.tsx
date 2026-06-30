@@ -78,7 +78,7 @@ const freelanceProjects = [
   },
   {
     name: "Solo",
-    description: "Developed backend API components for worksolo.com"
+    description: "Developed some backend API components for worksolo.com"
   },
   {
     name: "Export Feed",
