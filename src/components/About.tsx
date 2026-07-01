@@ -83,6 +83,7 @@ const About = () => {
                 <li>API Design & Microservices</li>
                 <li>Performance Optimization</li>
                 <li>Database Design & Optimization</li>
+                <li>AI Driven Development</li>
               </ul>
             </div>
           </motion.div>
