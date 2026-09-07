@@ -10,6 +10,254 @@ interface Message {
   isError?: boolean;
 }
 
+interface Block {
+  type: 'paragraph' | 'ul' | 'ol' | 'code' | 'header';
+  items?: string[];
+  content?: string;
+  language?: string;
+  level?: number;
+}
+
+const parseInlineMarkdown = (text: string, isUser = false): React.ReactNode[] => {
+  if (!text) return [];
+  
+  const inlineRegex = /(\*\*.*?\*\*|\[[^\]]+\]\([^)]+\)|`[^`]+`)/g;
+  const parts = text.split(inlineRegex);
+  
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      const content = part.slice(2, -2);
+      return (
+        <strong 
+          key={index} 
+          className={`font-bold ${isUser ? 'text-white' : 'text-slate-900 dark:text-white'}`}
+        >
+          {content}
+        </strong>
+      );
+    }
+    
+    if (part.startsWith('`') && part.endsWith('`')) {
+      const content = part.slice(1, -1);
+      return (
+        <code 
+          key={index} 
+          className={`px-1.5 py-0.5 rounded font-mono text-xs border ${
+            isUser 
+              ? 'bg-white/20 text-white border-white/10' 
+              : 'bg-slate-100 dark:bg-slate-800 text-pink-600 dark:text-pink-400 border-neutral-200/50 dark:border-slate-700/50'
+          }`}
+        >
+          {content}
+        </code>
+      );
+    }
+    
+    if (part.startsWith('[') && part.includes('](')) {
+      const closeBracketIndex = part.indexOf('](');
+      if (closeBracketIndex !== -1 && part.endsWith(')')) {
+        const linkText = part.slice(1, closeBracketIndex);
+        const url = part.slice(closeBracketIndex + 2, -1);
+        return (
+          <a
+            key={index}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`font-semibold underline underline-offset-2 transition-colors duration-200 ${
+              isUser
+                ? 'text-indigo-100 hover:text-white'
+                : 'text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300'
+            }`}
+          >
+            {linkText}
+          </a>
+        );
+      }
+    }
+    
+    return part;
+  });
+};
+
+interface MarkdownRendererProps {
+  text: string;
+  isUser?: boolean;
+}
+
+const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ text, isUser = false }) => {
+  const lines = text.split('\n');
+  const blocks: Block[] = [];
+  let currentListType: 'ul' | 'ol' | null = null;
+  let currentListItems: string[] = [];
+  let currentParagraphLines: string[] = [];
+  let inCodeBlock = false;
+  let codeContent: string[] = [];
+  let codeLanguage = '';
+
+  const flushList = () => {
+    if (currentListType && currentListItems.length > 0) {
+      blocks.push({
+        type: currentListType,
+        items: currentListItems
+      });
+      currentListItems = [];
+      currentListType = null;
+    }
+  };
+
+  const flushParagraph = () => {
+    if (currentParagraphLines.length > 0) {
+      blocks.push({
+        type: 'paragraph',
+        content: currentParagraphLines.join('\n')
+      });
+      currentParagraphLines = [];
+    }
+  };
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    if (inCodeBlock) {
+      if (line.trim().startsWith('```')) {
+        inCodeBlock = false;
+        blocks.push({
+          type: 'code',
+          content: codeContent.join('\n'),
+          language: codeLanguage
+        });
+        codeContent = [];
+        codeLanguage = '';
+      } else {
+        codeContent.push(line);
+      }
+      continue;
+    }
+
+    if (line.trim().startsWith('```')) {
+      flushParagraph();
+      flushList();
+      inCodeBlock = true;
+      codeLanguage = line.trim().slice(3).trim();
+      continue;
+    }
+
+    // Header
+    const headerMatch = line.match(/^\s*(#{1,6})\s+(.*)/);
+    if (headerMatch) {
+      flushParagraph();
+      flushList();
+      blocks.push({
+        type: 'header',
+        level: headerMatch[1].length,
+        content: headerMatch[2]
+      });
+      continue;
+    }
+
+    // Bullet list item
+    const bulletMatch = line.match(/^\s*[*•-]\s+(.*)/);
+    if (bulletMatch) {
+      flushParagraph();
+      if (currentListType !== 'ul') {
+        flushList();
+        currentListType = 'ul';
+      }
+      currentListItems.push(bulletMatch[1]);
+      continue;
+    }
+
+    // Numbered list item
+    const numberMatch = line.match(/^\s*(\d+)\.\s+(.*)/);
+    if (numberMatch) {
+      flushParagraph();
+      if (currentListType !== 'ol') {
+        flushList();
+        currentListType = 'ol';
+      }
+      currentListItems.push(numberMatch[2]);
+      continue;
+    }
+
+    // Empty line
+    if (line.trim() === '') {
+      flushList();
+      flushParagraph();
+      continue;
+    }
+
+    // Paragraph line
+    flushList();
+    currentParagraphLines.push(line);
+  }
+
+  flushList();
+  flushParagraph();
+
+  return (
+    <div className="space-y-2">
+      {blocks.map((block, index) => {
+        switch (block.type) {
+          case 'header': {
+            const level = block.level || 1;
+            const content = block.content || '';
+            const className = `font-bold mt-3 mb-2 ${
+              isUser ? 'text-white' : 'text-slate-900 dark:text-white'
+            } ${
+              level === 1 ? 'text-xl' :
+              level === 2 ? 'text-lg' :
+              level === 3 ? 'text-base' :
+              'text-sm'
+            }`;
+            
+            const Tag = `h${Math.min(level, 6)}` as React.ElementType;
+            return (
+              <Tag key={index} className={className}>
+                {parseInlineMarkdown(content, isUser)}
+              </Tag>
+            );
+          }
+          case 'paragraph':
+            return (
+              <p key={index} className="leading-relaxed whitespace-pre-wrap">
+                {parseInlineMarkdown(block.content || '', isUser)}
+              </p>
+            );
+          case 'ul':
+            return (
+              <ul key={index} className="list-disc pl-5 space-y-1 my-2">
+                {block.items?.map((item, itemIdx) => (
+                  <li key={itemIdx} className="leading-relaxed">
+                    {parseInlineMarkdown(item, isUser)}
+                  </li>
+                ))}
+              </ul>
+            );
+          case 'ol':
+            return (
+              <ol key={index} className="list-decimal pl-5 space-y-1 my-2">
+                {block.items?.map((item, itemIdx) => (
+                  <li key={itemIdx} className="leading-relaxed">
+                    {parseInlineMarkdown(item, isUser)}
+                  </li>
+                ))}
+              </ol>
+            );
+          case 'code':
+            return (
+              <pre key={index} className="bg-slate-950 text-slate-200 p-3 rounded-lg overflow-x-auto text-xs my-2 font-mono border border-slate-800">
+                <code>{block.content}</code>
+              </pre>
+            );
+          default:
+            return null;
+        }
+      })}
+    </div>
+  );
+};
+
 const generateSessionId = (): string => {
   if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
     return crypto.randomUUID();
@@ -322,7 +570,7 @@ export const ChatAssistant: React.FC = () => {
                           : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-neutral-100 dark:border-slate-700/50 rounded-bl-none'
                       }`}
                     >
-                      <p className="whitespace-pre-wrap">{msg.text}</p>
+                      <MarkdownRenderer text={msg.text} isUser={isUser} />
                       <span
                         className={`text-[9px] block text-right mt-1.5 font-light ${
                           isUser ? 'text-indigo-200' : 'text-neutral-400 dark:text-gray-500'

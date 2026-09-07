@@ -44,18 +44,62 @@ const Contact = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setStatus({ submitting: true, submitted: false, error: false, message: 'Processing...' });
+    setStatus({ submitting: true, submitted: false, error: false, message: 'Sending message...' });
     
-    // Simulate a brief delay for better UX
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Clear the form
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Show the dialog
-    setShowDialog(true);
-    setStatus({ submitting: false, submitted: false, error: false, message: '' });
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
+      console.error('Web3Forms Access Key is not configured. Please add VITE_WEB3FORMS_ACCESS_KEY to your .env file.');
+      setStatus({
+        submitting: false,
+        submitted: false,
+        error: true,
+        message: 'Form submission is not configured. Please add the VITE_WEB3FORMS_ACCESS_KEY to your env variables.'
+      });
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Shresthamanis: Message from ${formData.name} `,
+          from_name: 'Shresthamanis Contact Form'
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.status === 200 && data.success) {
+        setFormData({ name: '', email: '', message: '' });
+        setShowDialog(true);
+        setStatus({ submitting: false, submitted: true, error: false, message: 'Message sent successfully!' });
+      } else {
+        setStatus({
+          submitting: false,
+          submitted: false,
+          error: true,
+          message: data.message || 'Failed to send message. Please try again.'
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus({
+        submitting: false,
+        submitted: false,
+        error: true,
+        message: 'An error occurred while sending the message. Please try again later.'
+      });
+    }
   };
+
 
   return (
     <section id="contact" className="w-full flex justify-center bg-[#fafbfc] dark:bg-slate-900 py-6 sm:py-12 px-4 transition-colors duration-200">
@@ -148,6 +192,12 @@ const Contact = () => {
               >
                 {status.submitting ? 'Sending...' : 'Send Message'}
               </button>
+
+              {status.error && (
+                <div className="text-red-500 text-sm mt-2 text-center font-medium bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/30 rounded py-2 px-3 transition-colors">
+                  {status.message}
+                </div>
+              )}
             </form>
           </motion.div>
         </div>
@@ -234,7 +284,7 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  The contact form is currently being set up and will be ready soon. For now, please reach out directly via email or LinkedIn.
+                  Your message has been sent successfully. I will get back to you as soon as possible!
                 </motion.p>
 
                 {/* Action buttons */}
@@ -244,12 +294,13 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                 >
-                  <a
-                    href="mailto:me@shresthamanis.com.np"
+                  <button
+                    type="button"
+                    onClick={() => setShowDialog(false)}
                     className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-4 rounded-lg text-center hover:from-blue-600 hover:to-purple-700 transition-all duration-200 transform hover:scale-105"
                   >
-                    Send Email
-                  </a>
+                    Close
+                  </button>
                   <a
                     href="https://www.linkedin.com/in/maniz-stha/"
                     target="_blank"
