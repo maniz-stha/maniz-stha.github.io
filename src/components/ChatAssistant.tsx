@@ -304,7 +304,7 @@ export const ChatAssistant: React.FC = () => {
     const defaultGreeting: Message = {
       id: 'greeting',
       sender: 'assistant',
-      text: "Hi! I'm Manish's AI Assistant. Ask me anything about his skills, experience, projects, or how to get in touch!",
+      text: "Hi! I'm Mai, Manish's AI Assistant. Ask me anything about his skills, experience, projects, or how to get in touch!",
       timestamp: new Date().toISOString(),
     };
     setMessages([defaultGreeting]);
@@ -411,7 +411,7 @@ export const ChatAssistant: React.FC = () => {
       const errorMessage: Message = {
         id: generateSessionId(),
         sender: 'assistant',
-        text: "I'm having trouble connecting to my brain right now. Please make sure the AI assistant service is running and try again.",
+        text: "Hmm, I'm having trouble connecting to my brain right now. Could you try again in a moment?",
         timestamp: new Date().toISOString(),
         isError: true,
       };
@@ -537,7 +537,7 @@ export const ChatAssistant: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm tracking-wide">AI Assistant</h3>
+                  <h3 className="font-semibold text-sm tracking-wide">Mai — AI Assistant</h3>
                   <p className="text-[10px] text-indigo-100 font-light">Online • Ask anything about Manish</p>
                 </div>
               </div>
